@@ -60,6 +60,14 @@ router.post('/', (req, res) => {
 
 //เขียน api สำหรับแก้ไขข้อมูล (put)
 //เขียน api สำหรับลบข้อมูล  (delete)
-
+router.delete('/:id', function (req, res) {
+    for(var i=0;i<person.length;i++)
+    {
+        if(person[i].id == req.params.id){
+            person.splice(i, 1);
+        break;
+    }
+    }
+});
 
 module.exports = router   //ส่ง router ออกไปให้คนอื่นใช้งาน
