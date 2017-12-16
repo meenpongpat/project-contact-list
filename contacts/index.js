@@ -59,6 +59,28 @@ router.post('/', (req, res) => {
     });
 
 //เขียน api สำหรับแก้ไขข้อมูล (put)
+router.put('/:id',function (req, res){
+    for(var i=0; i<person.length; i++)
+    {
+        if(person[i].id == req.params.id)
+        {
+            if(person[i].firstname!=null){
+            person[i].firstname = req.body.firstname;}
+            if(person[i].lastname!=null){
+            person[i].lastname = req.body.lastname;}
+            if(person[i].email!=null){
+            person[i].email = req.body.email;}
+            if(person[i].phone!=null){
+            person[i].phone = req.body.phone;}
+            if(person[i].url!=null){
+            person[i].url = req.body.url;}
+            if(person[i].notes!=null){
+            person[i].notes = req.body.notes;}
+            break;
+        }   
+    }
+});
+
 //เขียน api สำหรับลบข้อมูล  (delete)
 router.delete('/:id', function (req, res) {
     for(var i=0;i<person.length;i++)
