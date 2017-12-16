@@ -41,6 +41,23 @@ router.get('/:id', (req, res) => {
  })
 
 //เขียน api สำหรับเพิ่มข้อมูล (post)
+router.post('/', (req, res) => {
+    var temp = 0;
+    if(person.length){
+    temp = parseInt(person[person.length - 1].id) + 1;
+    }
+        let  tempList = {
+            id : temp.toString(),
+            firstname: req.body.firstname,
+            lastname : req.body.lastname,
+            email :    req.body.email,
+            phone :    req.body.phone,
+            url :      req.body.url,
+            notes :    req.body.notes
+        }
+        person.push(tempList);
+    });
+
 //เขียน api สำหรับแก้ไขข้อมูล (put)
 //เขียน api สำหรับลบข้อมูล  (delete)
 
